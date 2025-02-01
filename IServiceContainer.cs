@@ -10,5 +10,6 @@ namespace SimpleServiceContainer
         void RegisterSingleton<TService, TImplementation>() where TImplementation : TService;
         object Resolve(Type serviceType, string name = null);
         TService Resolve<TService>(string name = null);
+        void Validate();
     }
 }

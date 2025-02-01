@@ -137,6 +137,21 @@ namespace SimpleServiceContainer
             }
         }
 
+        public void Validate()
+        {
+            foreach (var registration in _registrations)
+            {
+                try
+                {
+                    Resolve(registration.Key);
+                }
+                catch (Exception ex)
+                {
+                    throw new InvalidOperationException($"Validation failed for service of type {registration.Key}.", ex);
+                }
+            }
+        }
+
         public void BeginScope()
         {
             _scopedInstances.Clear();

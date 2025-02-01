@@ -6,8 +6,8 @@
         {
             IServiceContainer services = new ServiceContainer();
 
-            services.Register<ILogger<Calculator>, ConsoleLogger<Calculator>>();
             services.Register<ICalculator, Calculator>();
+            services.Register<ILogger<Calculator>, ConsoleLogger<Calculator>>();
             //services.Register<ICalculator>(() =>
             //{
             //    return new Calculator(services.Resolve<ILogger<Calculator>>());
